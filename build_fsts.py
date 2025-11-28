@@ -121,8 +121,8 @@ def build_zh_itn():
         time = add_weight(Time().tagger, 1.05)
         math = add_weight(Math().tagger, 1.10)
         char = add_weight(Char().tagger, 100)
-        measure = add_weight(Measure(enable_0_to_9=enable_0_to_9).tagger, 1.05)
-        money = add_weight(Money(enable_0_to_9=enable_0_to_9).tagger, 1.04)
+        measure = add_weight(Measure(enable_0_to_9=True).tagger, 1.05)
+        money = add_weight(Money(enable_0_to_9=True).tagger, 1.04)
         cardinal = add_weight(Cardinal(True, enable_0_to_9, False).tagger, 1.06)
         tagger = date | whitelist | fraction | measure | money | time | cardinal | math | char
         tagger.optimize().star.optimize().write(
